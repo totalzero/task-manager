@@ -1,4 +1,17 @@
 <h1>Registration </h1>
+<% if flash[:notice] %>
+<h4><%= flash[:notice] %></h4>
+<%end%>
+
+<% if flash[:alert] %>
+<h4><%= flash[:alert] %></h4>
+<% @user.errors.full_messages.each do |error| %>
+<div>
+    <p><strong> <%= error %> </strong></p>
+</div>
+<%end%>
+<%end%>
+
 <%= form_with model: @user, url: users_registrations_path,  local: true do |form| %> 
 <div>
     <%= form.label :user_name %>
@@ -17,18 +30,6 @@
     <%= form.password_field :password_confirmation %>
 </div>
 <div>
-    <%= form.submit %>
-</div>
-<%end%>
-
-<% if flash[:notice] %>
-<div>
-    <p><%= flash[:notice] %> </p>
-</div>
-<%end%>
-<% if flash[:alert] %>
-<div>
-    <h1> Registration result</h1>
-    <p> <%= flash[:alert]%></p>
+    <%= form.submit "Register" %>
 </div>
 <%end%>
