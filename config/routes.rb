@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 namespace :users do
     resources :registrations, only: [:new, :create]
+    #resources :login, only: [:new, :create, :destroy]
+get 'login', to: "login#new"
+post 'login', to: "login#create"
+delete 'logout', to: "login#destroy"
 end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

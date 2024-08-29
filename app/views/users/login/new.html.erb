@@ -1,0 +1,26 @@
+<h1>Login</h1>
+
+<% if flash[:notice]%>
+<div>
+    <h6><strong><%= flash[:notice]%></strong></h6>
+</div>
+<%end%>
+    <% if flash[:alert] %>
+<div>
+    <strong><h6><%= flash[:alert]%></h6></strong>
+</div>
+    <%end%>
+
+<%= form_with model: @user, url: users_login_url, method: :post do |form| %>
+<div>
+<%= form.label :email %>
+<%= form.email_field :email %>
+</div>
+<div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+</div>
+<div>
+    <%= form.submit "login" %>
+</div>
+<%end%>
