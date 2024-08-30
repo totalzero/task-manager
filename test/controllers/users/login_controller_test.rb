@@ -14,4 +14,5 @@ post users_login_url, params: {user: {email: "dotnet@domainet.com", password: "p
 assert_template :new
 assert_equal "wrong login parameters", flash[:alert]
 end
+
 end

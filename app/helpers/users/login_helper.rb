@@ -1,11 +1,10 @@
 module Users::LoginHelper
   def login_user(user)
     session[:current_user] = user.id
-    puts "uzytkownik zostal pomyslnie dodany do sesji"
-  end
+end
 
   def logout_user
-session[:current_user]     = nil
+session.delete[:current_user]
   end
 
   def current_user
