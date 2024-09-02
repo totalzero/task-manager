@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  root 'users/dashboard#show'
+
 namespace :users do
     resources :registrations, only: [:new, :create]
     #resources :login, only: [:new, :create, :destroy]
 get 'login', to: "login#new"
 post 'login', to: "login#create"
 delete 'logout', to: "login#destroy"
+
+#dashboard routes
+get '/dashboard', to: "dashboard#show"
 end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
