@@ -1,0 +1,27 @@
+<h1><%= @group.name %></h1>
+<div>
+    <p> <%= @group.description %></p>
+</div>
+<h2>Members</h2>
+<table>
+<thead>
+    <tr>
+        <th>lp</th>
+        <th>User Name</th>
+        <th>Email Address</th>
+    </tr>
+</thead>
+<tbody>
+    <% @group.members.each_with_index do |member, index| %>
+<tr>
+    <td><%= index %></td>
+    <td><%= member.user_name %></td>
+    <td><%= member.email %></td>
+</tr>
+    <%end%>
+</tbody>
+</table>
+
+<% if owner?(current_user, @group) %>
+<%= render "add_member_form", group: @group %>
+<%end%>

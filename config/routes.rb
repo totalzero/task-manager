@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   root 'users/dashboard#show'
+  post 'groups/add_member', to: "groups#add_member", as: "groups_add_member"
+resources :groups do
+
+  resources :tasks
+end
+
 
 namespace :users do
     resources :registrations, only: [:new, :create]
@@ -10,6 +16,8 @@ delete 'logout', to: "login#destroy"
 
 #dashboard routes
 get '/dashboard', to: "dashboard#show"
+
+
 end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

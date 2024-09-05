@@ -9,7 +9,7 @@ include Users::LoginHelper
 @user = User.find_by(email: user_params[:email])
 if @user&.authenticate(user_params[:password])
   login_user(@user)
-  render :new
+  redirect_to users_dashboard_path
 else
   flash.now[:alert] = "wrong login parameters"
   render :new, status: :not_found
@@ -19,7 +19,7 @@ end
   def destroy
     logout_user
     flash.now[:notice] = "user logout"
-    redirect_to users_login_path
+    redirect_to root_path, status: :see_other
   end
 
 private

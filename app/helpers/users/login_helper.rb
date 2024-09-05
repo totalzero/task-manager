@@ -4,7 +4,7 @@ module Users::LoginHelper
 end
 
   def logout_user
-session.delete[:current_user]
+session[:current_user] = nil
   end
 
   def current_user

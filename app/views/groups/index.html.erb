@@ -1,0 +1,24 @@
+<h1>Groups</h1>
+<table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>description</th>
+            <th>creator</th>
+            <th>members count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @groups.each do |group| %>
+<tr>
+    <td><%= link_to group.name, group %></td>
+    <td><%= group.description %></td>
+    <td><%= group.ovner.user_name %></td>
+    <td><%= group.members.count %></td>
+</tr>
+        <%end%>
+    </tbody>
+</table>
+<div>
+    <%= link_to "New Group", new_group_path %>
+</div>
