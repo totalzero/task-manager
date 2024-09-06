@@ -1,1 +1,5 @@
 <h1>Dashboard</h1>
+<h3>My Tasks</h3>
+<div>
+    <%= render "tasks/index", tasks: current_user.assigned_tasks%>
+</div>

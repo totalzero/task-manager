@@ -1,0 +1,9 @@
+<h2>Edit Task</h2>
+<%= form_with model: @task, url: group_tasks_url(@group, @task), method: :put, local: true do |form| %>
+<div>
+    <%= form.select :status, ["pending", "inprogress", "completed"] %>
+</div>
+<div>
+    <%= form.submit %>
+</div>
+<%end%>

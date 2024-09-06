@@ -1,0 +1,31 @@
+<div>
+    <h1>New Task</h1>
+    <div>
+<%@task.errors.full_messages.each do |error| %>
+<p><strong><%=error%></strong></p>
+<%end%>
+    </div>
+    <div>
+        <%= form_with model: @task, url: group_tasks_url(@group) do |form| %>
+
+<div>
+<%= form.label :title %>
+<%= form.text_field :title %>
+</div>
+<div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+</div>
+<div>
+    <%= form.select :status, ["pending", "inprogress", "completed"] %>
+</div>
+<div>
+<%= form.label :task_for %>
+<%= form.select :task_for, @members %>
+</div>
+<div>
+    <%= form.submit %>
+</div>
+        <%end%>
+    </div>
+</div>

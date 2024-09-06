@@ -23,5 +23,12 @@
 </table>
 
 <% if owner?(current_user, @group) %>
+<div>
+    <%= link_to 'add task', new_group_task_path(@group) %>
+</div>
 <%= render "add_member_form", group: @group %>
+<div>
+    <h3>Tasks</h3>
+    <%= render "tasks/index", tasks: @group.tasks %>
+</div>
 <%end%>
